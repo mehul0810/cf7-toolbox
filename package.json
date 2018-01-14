@@ -1,0 +1,13 @@
+{
+  "name": "cf7-toolbox",
+  "version": "1.0.0",
+  "description": "An Intuitive Contact Form 7 Add-on to extend the functionality.",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Mehul Gohil",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
