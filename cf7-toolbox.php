@@ -81,8 +81,8 @@ if ( ! class_exists( 'CF7_Toolbox' ) ) :
 				return;
 			}
 
-			$this->includes();
 			$this->initialize_hooks();
+			$this->includes();
 			$this->load_textdomain();
 
 		}
@@ -183,7 +183,8 @@ if ( ! class_exists( 'CF7_Toolbox' ) ) :
 			// If Gutenberg is activated, then display gutenberg block for contact form 7.
 			if(
 				current_user_can( 'activate_plugins' ) &&
-				defined( 'GUTENBERG_VERSION' )
+				get_option( 'cf7_core_activated' ) &&
+				function_exists( 'register_block_type' )
 			) {
 				require_once CF7_TOOLBOX_PLUGIN_DIR . 'modules/gutenberg/index.php';
 			}
@@ -225,6 +226,8 @@ if ( ! class_exists( 'CF7_Toolbox' ) ) :
 				return false;
 
 			}
+
+			update_option( 'cf7_core_activated', true );
 
 		}
 
